@@ -230,47 +230,47 @@ except:
 register_title = ttk.Label(register_card, text="Register Students", font=subheading_font, background="#2c2c2c", foreground="yellow")
 register_title.pack(pady=10)
 
-# COMMENTED OUT: Take Attendance Card
-# attendance_card = create_card_frame(cards_frame)
-# attendance_card.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
-# 
-# # Try to load attendance image
-# try:
-#     ai = Image.open("UI_Image/attendance.png")
-#     ai = ai.resize((150, 150), Image.LANCZOS)
-#     a_img = ImageTk.PhotoImage(ai)
-#     
-#     attendance_img_label = ttk.Label(attendance_card, image=a_img, background="#2c2c2c")
-#     attendance_img_label.image = a_img
-#     attendance_img_label.pack(pady=20)
-# except:
-#     # If image can't be loaded, show a placeholder
-#     attendance_label = ttk.Label(attendance_card, text="Attendance", font=heading_font, background="#2c2c2c", foreground="yellow")
-#     attendance_label.pack(pady=20)
-# 
-# attendance_title = ttk.Label(attendance_card, text="Take Attendance", font=subheading_font, background="#2c2c2c", foreground="yellow")
-# attendance_title.pack(pady=10)
+#Take Attendance Card
+attendance_card = create_card_frame(cards_frame)
+attendance_card.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
-# COMMENTED OUT: View Attendance Card
-# view_card = create_card_frame(cards_frame)
-# view_card.grid(row=0, column=2, padx=10, pady=10, sticky="nsew")
-# 
-# # Try to load view image
-# try:
-#     vi = Image.open("UI_Image/verifyy.png")
-#     vi = vi.resize((150, 150), Image.LANCZOS)
-#     v_img = ImageTk.PhotoImage(vi)
-#     
-#     view_img_label = ttk.Label(view_card, image=v_img, background="#2c2c2c")
-#     view_img_label.image = v_img
-#     view_img_label.pack(pady=20)
-# except:
-#     # If image can't be loaded, show a placeholder
-#     view_label = ttk.Label(view_card, text="View", font=heading_font, background="#2c2c2c", foreground="yellow")
-#     view_label.pack(pady=20)
-# 
-# view_title = ttk.Label(view_card, text="View Attendance", font=subheading_font, background="#2c2c2c", foreground="yellow")
-# view_title.pack(pady=10)
+# Try to load attendance image
+try:
+    ai = Image.open("UI_Image/attendance.png")
+    ai = ai.resize((150, 150), Image.LANCZOS)
+    a_img = ImageTk.PhotoImage(ai)
+    
+    attendance_img_label = ttk.Label(attendance_card, image=a_img, background="#2c2c2c")
+    attendance_img_label.image = a_img
+    attendance_img_label.pack(pady=20)
+except:
+    # If image can't be loaded, show a placeholder
+    attendance_label = ttk.Label(attendance_card, text="Attendance", font=heading_font, background="#2c2c2c", foreground="yellow")
+    attendance_label.pack(pady=20)
+
+attendance_title = ttk.Label(attendance_card, text="Take Attendance", font=subheading_font, background="#2c2c2c", foreground="yellow")
+attendance_title.pack(pady=10)
+
+# View Attendance Card
+view_card = create_card_frame(cards_frame)
+view_card.grid(row=0, column=2, padx=10, pady=10, sticky="nsew")
+
+# Try to load view image
+try:
+    vi = Image.open("UI_Image/verifyy.png")
+    vi = vi.resize((150, 150), Image.LANCZOS)
+    v_img = ImageTk.PhotoImage(vi)
+    
+    view_img_label = ttk.Label(view_card, image=v_img, background="#2c2c2c")
+    view_img_label.image = v_img
+    view_img_label.pack(pady=20)
+except:
+    # If image can't be loaded, show a placeholder
+    view_label = ttk.Label(view_card, text="View", font=heading_font, background="#2c2c2c", foreground="yellow")
+    view_label.pack(pady=20)
+
+view_title = ttk.Label(view_card, text="View Attendance", font=subheading_font, background="#2c2c2c", foreground="yellow")
+view_title.pack(pady=10)
 
 # Button frame
 button_frame = ttk.Frame(main_container)
@@ -421,25 +421,24 @@ register_btn = ttk.Button(
 )
 register_btn.pack(pady=10, padx=20, fill=X)
 
-# COMMENTED OUT: Take Attendance button
-# attendance_btn = ttk.Button(
-#     attendance_card,
-#     text="Take Attendance",
-#     command=lambda: automaticAttedance.subjectChoose(text_to_speech),
-#     style='Accent.TButton',
-# )
-# attendance_btn.pack(pady=10, padx=20, fill=X)
+# Take Attendance button
+attendance_btn = ttk.Button(
+    attendance_card,
+    text="Take Attendance",
+    command=lambda: automaticAttedance.subjectChoose(text_to_speech),
+    style='Accent.TButton',
+)
+attendance_btn.pack(pady=10, padx=20, fill=X)
 
-# COMMENTED OUT: View Attendance button
-# view_btn = ttk.Button(
-#     view_card,
-#     text="View Attendance",
-#     command=lambda: show_attendance.subjectchoose(text_to_speech),
-#     style='Accent.TButton',
-# )
-# view_btn.pack(pady=10, padx=20, fill=X)
+# View Attendance button
+view_btn = ttk.Button(
+    view_card,
+    text="View Attendance",
+    command=lambda: show_attendance.subjectchoose(text_to_speech),
+    style='Accent.TButton',
+)
+view_btn.pack(pady=10, padx=20, fill=X)
 
-# Exit button at the bottom
 exit_frame = ttk.Frame(main_container)
 exit_frame.pack(fill=X, pady=20)
 
@@ -451,22 +450,21 @@ exit_btn = ttk.Button(
 )
 exit_btn.pack(side=BOTTOM, pady=10, padx=20)
 
-# Add hover effects
+
 def add_hover_effect(widget):
     widget.bind("<Enter>", lambda e: widget.configure(background="#3c3c3c"))
     widget.bind("<Leave>", lambda e: widget.configure(background="#2c2c2c"))
 
-# Apply hover effects to register card only
+
 add_hover_effect(register_card)
 
-# COMMENTED OUT: Hover effects for other cards
+
 # add_hover_effect(attendance_card)
 # add_hover_effect(view_card)
 
 # Show splash screen before showing the main window
 window.withdraw()  # Hide main window
 splash = show_splash()
-window.after(2500, lambda: [window.deiconify(), window.lift()])  # Show main window after splash
+window.after(2500, lambda: [window.deiconify(), window.lift()]) 
 
-# Run the app
 window.mainloop()
